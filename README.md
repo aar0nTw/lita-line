@@ -1,7 +1,7 @@
 # lita-line
 
 [![Build Status](https://travis-ci.org/aar0nTw/lita-line.png?branch=master)](https://travis-ci.org/aar0ntw/lita-line)
-[![Coverage Status](https://coveralls.io/repos/aar0nTw/lita-line/badge.png)](https://coveralls.io/r/aar0ntw/lita-line)
+[![Coverage Status](https://coveralls.io/repos/github/aar0nTw/lita-line/badge.svg?branch=master)](https://coveralls.io/github/aar0nTw/lita-line?branch=master)
 
 TODO: Add a description of the plugin.
 
