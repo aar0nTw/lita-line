@@ -8,7 +8,6 @@ describe Lita::Adapters::Line::Client, lita: true do
   before do
     allow(Line::Bot::Client).to receive(:new).and_return(line_client)
     allow(line_client).to receive(:reply_message)
-    allow(subject).to receive(:format_msg)
   end
 
   it 'Should have a client' do
@@ -19,4 +18,9 @@ describe Lita::Adapters::Line::Client, lita: true do
     expect(subject).to receive(:format_msg)
     subject.send_messages(reply_token, ['foo'])
   end
+
+  it 'format_msg should return a dictionary' do
+    expect(subject.format_msg(['foo'])).to eq [{ type: :text, text: 'foo' }]
+  end
+
 end
