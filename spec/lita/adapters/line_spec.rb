@@ -1,6 +1,5 @@
 require "spec_helper"
-require "spec_helper"
-
+# Main test
 describe Lita::Adapters::Line, lita: true do
   subject { described_class.new(robot) }
 
@@ -41,10 +40,15 @@ describe Lita::Adapters::Line, lita: true do
     subject.run
   end
 
-  xit 'should register callback http route' do
+  it 'Chat service' do
     subject.run
-    http_client = Faraday::Connection.new { |c| c.adapter(:rack, Lita::RackApp.new(robot)) }
-    expect(http_client.post('/callback').body).to eq 'OK'
+    expect(subject.chat_service).to eq(client)
+  end
+
+  it 'Shut down will call client.stop' do
+    expect(client).to receive(:stop)
+    subject.run
+    subject.shut_down
   end
 
   describe 'send messages' do
@@ -64,3 +68,4 @@ describe Lita::Adapters::Line, lita: true do
   end
 
 end
+
