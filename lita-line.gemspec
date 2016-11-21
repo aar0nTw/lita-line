@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-line"
-  spec.version       = "0.5.1"
+  spec.version       = "0.5.2"
   spec.authors       = ["Aaron Huang"]
   spec.email         = ["aaroms9733@gmail.com"]
   spec.description   = "A line adapter for lita bot"
