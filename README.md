@@ -15,6 +15,15 @@ gem "lita-line"
 ```
 
 ## Configuration
+
+Use line adapter in `lita_config.rb`
+
+``` ruby
+config.robot.adapter = :line
+config.adapters.line.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+config.adapters.line.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+```
+
 ### Required attributes
 
 - `channel_secret` _(String)_: Bot's Channel secret
