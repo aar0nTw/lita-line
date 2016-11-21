@@ -1,5 +1,6 @@
 # lita-line
-
+[![Gem](https://img.shields.io/gem/v/lita-line.svg)](https://rubygems.org/gems/lita-line)
+[![Gem](https://img.shields.io/gem/dt/lita-line.svg)](https://rubygems.org/gems/lita-line)
 [![Build Status](https://img.shields.io/travis/aar0nTw/lita-line.svg)](https://travis-ci.org/aar0nTw/lita-line)
 [![Coverage Status](https://img.shields.io/coveralls/aar0nTw/lita-line.svg)](https://coveralls.io/github/aar0nTw/lita-line?branch=master)
 
