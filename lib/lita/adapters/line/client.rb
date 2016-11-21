@@ -1,5 +1,6 @@
 require 'line/bot'
 require 'eventmachine'
+require 'pry'
 
 module Lita
   module Adapters
@@ -14,8 +15,8 @@ module Lita
         end
 
         def run
+          log.info "Running client"
           EM.run do
-            log.info "Running client"
           end
         end
 
