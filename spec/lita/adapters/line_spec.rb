@@ -1,4 +1,5 @@
 require "spec_helper"
+require "spec_helper"
 
 describe Lita::Adapters::Line, lita: true do
   subject { described_class.new(robot) }
