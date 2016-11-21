@@ -5,4 +5,3 @@ Lita.load_locales Dir[File.expand_path(
 )]
 
 require "lita/adapters/line"
-require "lita/handlers/line"

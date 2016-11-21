@@ -1,4 +1,5 @@
 require "spec_helper"
+require "pry"
 
 describe Lita::Adapters::Line, lita: true do
   subject { described_class.new(robot) }
@@ -11,6 +12,7 @@ describe Lita::Adapters::Line, lita: true do
     registry.register_adapter(:line, described_class)
     registry.config.adapters.line.channel_secret = secret
     registry.config.adapters.line.channel_token = token
+    robot.config.robot.adapter = :line
   end
 
   it 'Register adapter' do
@@ -20,6 +22,12 @@ describe Lita::Adapters::Line, lita: true do
   it 'running' do
     subject.run
     expect(subject.client).to be_a(described_class::Client)
+  end
+
+  it 'should register callback http route' do
+    subject.run
+    http_client = Faraday::Connection.new { |c| c.adapter(:rack, Lita::RackApp.new(robot)) }
+    expect(http_client.post('/callback').body).to eq 'Bar'
   end
 
   describe 'send messages' do
