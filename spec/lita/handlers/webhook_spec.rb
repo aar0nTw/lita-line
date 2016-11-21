@@ -26,6 +26,7 @@ describe Lita::Handlers::Webhook, lita_handler: true do
   describe 'Handler callback' do
     let(:request) { double }
     let(:response) { double }
+    let(:config) { double }
     let(:body) { <<EOS
 {
   "events": [
@@ -56,20 +57,19 @@ EOS
       ).to receive(:finish)
       request.stub_chain(:body, :read).and_return body
       request.stub(:env).and_return env
+      config.stub(:channel_secret).and_return 'secret'
+      config.stub(:channel_token).and_return 'token'
+      robot.stub_chain(:chat_service, :client).and_return(Lita::Adapters::Line::Client.new(robot, config).client)
     end
 
     it 'HTTP 401 when Line signature unvalidated' do
-      client.stub(:validate_signature).and_return false
+      Line::Bot::Client.any_instance.stub(:validate_signature => false)
       allow(response).to receive(:status=)
       subject.callback(request, response)
       expect(response).to have_received(:status=).with(401)
     end
 
     it "HTTP 200 when validate_signature" do
-      config = double
-      config.stub(:channel_secret).and_return 'secret'
-      config.stub(:channel_token).and_return 'token'
-      robot.stub_chain(:chat_service, :client).and_return(Lita::Adapters::Line::Client.new(robot, config).client)
       Line::Bot::Client.any_instance.stub(:validate_signature => true)
       expect(response).to receive(:status=).with(200)
       subject.callback(request, response)
