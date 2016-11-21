@@ -1,6 +1,5 @@
 require 'line/bot'
 require 'eventmachine'
-require 'pry'
 
 module Lita
   module Adapters

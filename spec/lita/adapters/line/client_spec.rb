@@ -1,6 +1,5 @@
 require 'spec_helper'
 require 'line/bot'
-require 'pry'
 
 describe Lita::Adapters::Line::Client, lita: true do
   subject { described_class.new(robot, config) }
