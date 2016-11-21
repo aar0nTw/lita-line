@@ -45,7 +45,7 @@ module Lita
                 case event.type
                 when ::Line::Bot::Event::MessageType::Text
                   Lita.logger.info "Income: #{DateTime.strptime(event['timestamp'].to_s, '%Q').to_s}[#{event.message['id']}##{event.message['type']}]: #{event.message['text']} "
-                  user = Lita::User.create(event['replyToken'], {
+                  user = Lita::User.create('guest', {
                     name: 'Guest'
                   })
                   source = Lita::Source.new(user: user, room: event['replyToken'])
