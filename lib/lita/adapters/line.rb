@@ -10,22 +10,8 @@ module Lita
 
       def run
         return if client
-        @client = Client.new(config)
-        if robot.config.robot.adapter == :line
-          robot.registry.register_handler(:line_callback) do
-            http.post '/callback' do |request, response|
-              body = request.body.read
-
-              signature = request.env['HTTP_X_LINE_SIGNATURE']
-              unless robot.chat_service.client.validate_signature(body, signature)
-                response.status '401'
-                response.write 'Unauthorized'
-                response.finish!
-              end
-              response.write 'OK'
-            end
-          end
-        end
+        @client = Client.new(robot, config)
+        client.run
       end
 
       def send_messages(target, messages)

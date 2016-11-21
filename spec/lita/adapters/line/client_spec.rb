@@ -2,7 +2,8 @@ require 'spec_helper'
 require 'line/bot'
 
 describe Lita::Adapters::Line::Client, lita: true do
-  subject { described_class.new(registry.config) }
+  subject { described_class.new(robot, registry.config) }
+  let(:robot) { Lita::Robot.new(registry) }
   let(:line_client) {instance_double("Line::Bot::Client")}
   let(:reply_token) { "reply_token" }
   before do

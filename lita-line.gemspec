@@ -14,6 +14,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_runtime_dependency "eventmachine"
+  spec.add_runtime_dependency "faye"
   spec.add_runtime_dependency "lita", ">= 4.7"
   spec.add_runtime_dependency "line-bot-api", "~> 1.0.0"
 

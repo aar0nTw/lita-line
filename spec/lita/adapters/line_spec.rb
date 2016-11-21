@@ -1,11 +1,11 @@
 require "spec_helper"
-require "pry"
 
 describe Lita::Adapters::Line, lita: true do
   subject { described_class.new(robot) }
 
   let(:robot) { Lita::Robot.new(registry) }
   let(:secret) { 'channel-secret' }
+  let(:client) { instance_double("#{described_class}::Client") }
   let(:token) { 'channel-token' }
 
   before do
@@ -13,6 +13,11 @@ describe Lita::Adapters::Line, lita: true do
     registry.config.adapters.line.channel_secret = secret
     registry.config.adapters.line.channel_token = token
     robot.config.robot.adapter = :line
+
+    allow(
+      described_class::Client
+    ).to receive(:new).with(robot, subject.config).and_return(client)
+    allow(client).to receive(:run)
   end
 
   it 'Register adapter' do
@@ -21,13 +26,24 @@ describe Lita::Adapters::Line, lita: true do
 
   it 'running' do
     subject.run
-    expect(subject.client).to be_a(described_class::Client)
+    expect(subject.client).to be client
   end
 
-  it 'should register callback http route' do
+  it 'client will run when adapter run' do
+    expect(client).to receive(:run)
+    subject.run
+  end
+
+  it 'Only run once' do
+    expect(client).to receive(:run).once
+    subject.run
+    subject.run
+  end
+
+  xit 'should register callback http route' do
     subject.run
     http_client = Faraday::Connection.new { |c| c.adapter(:rack, Lita::RackApp.new(robot)) }
-    expect(http_client.post('/callback').body).to eq 'Bar'
+    expect(http_client.post('/callback').body).to eq 'OK'
   end
 
   describe 'send messages' do
@@ -35,7 +51,7 @@ describe Lita::Adapters::Line, lita: true do
     let(:messages) {["Hello world"]}
     let(:client) {instance_double('Lita::Adapters::Line::Client')}
     before do
-      allow(described_class::Client).to receive(:new).with(subject.config).and_return(client)
+      allow(described_class::Client).to receive(:new).with(robot, subject.config).and_return(client)
       allow(client).to receive(:send_messages).with(room_source.room, messages)
     end
 
