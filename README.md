@@ -25,3 +25,11 @@ Create a line bot at https://business.line.me/ and get it's secret and token in 
 
 - Deploy your lita app to heroku
 - Setting the webhook callback address: `https://{your-lita-app-name}.herokuapp.com/callback` in https://developers.line.me 
+
+## API documentation
+
+The API documentation, useful for plugin authors, can be found for the latest gem release on [RubyDoc.info](http://www.rubydoc.info/gems/lita-line)
+
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
