@@ -6,7 +6,7 @@ module Lita
     class Line < Adapter
       class Client
         attr_reader :client
-        def initialize(robot, config)
+        def initialize(config)
           @client = ::Line::Bot::Client.new { |c|
             c.channel_secret = config.channel_secret
             c.channel_token = config.channel_token

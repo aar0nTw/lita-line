@@ -59,7 +59,7 @@ EOS
       request.stub(:env).and_return env
       config.stub(:channel_secret).and_return 'secret'
       config.stub(:channel_token).and_return 'token'
-      robot.stub_chain(:chat_service, :client).and_return(Lita::Adapters::Line::Client.new(robot, config).client)
+      robot.stub_chain(:chat_service, :client).and_return(Lita::Adapters::Line::Client.new(config).client)
     end
 
     it 'HTTP 401 when Line signature unvalidated' do

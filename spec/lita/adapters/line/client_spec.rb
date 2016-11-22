@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'line/bot'
 
 describe Lita::Adapters::Line::Client, lita: true do
-  subject { described_class.new(robot, config) }
+  subject { described_class.new(config) }
   let(:robot) { Lita::Robot.new(registry) }
   let(:line_client) {instance_double("Line::Bot::Client")}
   let(:reply_token) { "reply_token" }
@@ -22,7 +22,7 @@ describe Lita::Adapters::Line::Client, lita: true do
   it 'LineBotClien init' do
     expect(config).to receive(:channel_secret)
     expect(config).to receive(:channel_token)
-    described_class.new(nil, config)
+    described_class.new(config)
   end
 
   it 'run should use EventMachine' do

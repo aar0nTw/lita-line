@@ -11,7 +11,7 @@ module Lita
 
       def run
         return if client
-        @client = Client.new(robot, config)
+        @client = Client.new(config)
         client.run
       end
 
