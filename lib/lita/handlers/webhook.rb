@@ -1,11 +1,11 @@
 module Lita
   module Handlers
     class Webhook < Handler
-      #attr_reader :client
-      #def initialize(robot)
-        #@client = robot.chat_service.client
-      #end
-      def client
+      attr_reader :client
+      attr_reader :robot
+
+      def initialize(robot)
+        @robot = robot
         @client = robot.chat_service.client
       end
 
