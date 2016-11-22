@@ -27,7 +27,7 @@ module Lita
             when ::Line::Bot::Event::Message
               case event.type
               when ::Line::Bot::Event::MessageType::Text
-                log.info "Webhook: #{DateTime.strptime(event['timestamp'].to_s, '%Q').to_s}[#{event.message['id']}##{event.message['type']}]: #{event.message['text']} "
+                log.info "Webhook: #{DateTime.strptime(event['timestamp'].to_s, '%Q')}[#{event.message['id']}##{event.message['type']}]: #{event.message['text']} "
                 # TODO Parse user from event
                 user = Lita::User.create('guest', {
                   name: 'Guest'
