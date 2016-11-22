@@ -6,7 +6,7 @@
 [![Code Climate](https://codeclimate.com/github/aar0nTw/lita-line/badges/gpa.svg)](https://codeclimate.com/github/aar0nTw/lita-line)
 [![Coverage Status](https://img.shields.io/coveralls/aar0nTw/lita-line.svg)](https://coveralls.io/github/aar0nTw/lita-line?branch=master)
 
-Line Messanging webhook adapter for [Lita](https://github.com/litaio/lita)
+LINE messaging webhook adapter for [Lita](https://github.com/litaio/lita)
 
 ## Installation
 
