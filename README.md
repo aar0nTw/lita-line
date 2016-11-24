@@ -42,6 +42,10 @@ Create a line bot at https://business.line.me/ and get it's secret and token in 
 
 The API documentation, useful for plugin authors, can be found for the latest gem release on [RubyDoc.info](http://www.rubydoc.info/gems/lita-line)
 
+## Example
+
+- [Lita-line-bot](https://github.com/aar0ntw/lita-line-bt) | A simple LINE messaging bot use Lita
+
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
