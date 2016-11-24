@@ -44,7 +44,7 @@ The API documentation, useful for plugin authors, can be found for the latest ge
 
 ## Example
 
-- [Lita-line-bot](https://github.com/aar0ntw/lita-line-bt) | A simple LINE messaging bot use Lita
+- [Lita-line-bot](https://github.com/aar0nTw/lita-line-bot) | A simple LINE messaging bot use Lita
 
 ## License
 
