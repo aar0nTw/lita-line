@@ -28,10 +28,7 @@ module Lita
               case event.type
               when ::Line::Bot::Event::MessageType::Text
                 log.info "Webhook: #{DateTime.strptime(event['timestamp'].to_s, '%Q')}[#{event.message['id']}##{event.message['type']}]: #{event.message['text']} "
-                # TODO Parse user from event
-                user = Lita::User.create('guest', {
-                  name: 'Guest'
-                })
+                user = create_user event['source']
                 source = Lita::Source.new(user: user, room: event['replyToken'])
                 message = Lita::Message.new(robot, event.message['text'], source)
                 robot.receive(message)
@@ -40,6 +37,13 @@ module Lita
           end
         end
         response.finish
+      end
+
+      def create_user(event_source)
+        source_type = event_source['type']
+        user = Lita::User.create(event_source["#{source_type}Id"], { type: source_type })
+        log.info "Create User: #{user.id} - #{user.metadata}"
+        user
       end
 
       http.post "/callback", :callback

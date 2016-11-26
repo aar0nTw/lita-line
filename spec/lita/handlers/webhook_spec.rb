@@ -1,4 +1,5 @@
 require "spec_helper"
+require "json"
 
 describe Lita::Handlers::Webhook, lita_handler: true do
 
@@ -28,24 +29,24 @@ describe Lita::Handlers::Webhook, lita_handler: true do
     let(:response) { double }
     let(:config) { double }
     let(:body) { <<EOS
-{
-  "events": [
       {
-        "replyToken": "reply_token",
-        "type": "message",
-        "timestamp": 1462629479859,
-        "source": {
-             "type": "user",
-             "userId": "U206d25c2ea6bd87c17655609a1c37cb8"
-         },
-         "message": {
-             "id": "325708",
-             "type": "text",
-             "text": "Hello, world"
+        "events": [
+          {
+            "replyToken": "reply_token",
+            "type": "message",
+            "timestamp": 1462629479859,
+            "source": {
+              "type": "user",
+              "userId": "U206d25c2ea6bd87c17655609a1c37cb8"
+            },
+            "message": {
+              "id": "325708",
+              "type": "text",
+              "text": "Hello, world"
+            }
           }
+        ]
       }
-  ]
-    }
 EOS
     }
     let(:signature) { double }
@@ -74,6 +75,41 @@ EOS
       expect(response).to receive(:status=).with(200)
       subject.callback(request, response)
     end
+
+    it "Callback Should call @create_user function" do
+      Line::Bot::Client.any_instance.stub(:validate_signature => true)
+      allow(response).to receive(:status=).with(200)
+      expect(subject).to receive :create_user
+      subject.callback(request, response)
+    end
+  end
+
+  describe 'Create User' do
+    let(:id) {'U206d25c2ea6bd87c17655609a1c37cb8'}
+    let(:event_source_json) { <<EOS
+      {
+        "type": "user",
+        "userId": "#{id}"
+      }
+EOS
+    }
+    let(:event_source) { JSON.parse event_source_json }
+
+    it 'create_user should return a source instance' do
+      expect(subject.create_user event_source).to be_a Lita::User
+    end
+
+    it 'create_user should return right metadata' do
+      event_source['type'] = 'group'
+      user = subject.create_user event_source
+      expect(user.metadata['type']).to eq 'group'
+    end
+
+    it 'user object should have correct id' do
+      user = subject.create_user event_source
+      expect(user.id).to eq id
+    end
+
   end
 end
 
