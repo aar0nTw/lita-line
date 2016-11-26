@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Lita-line by aar0nTw</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Lita-line</h1>
+      <h2 class="project-tagline">A Line adapter for Lita</h2>
+      <a href="https://github.com/aar0nTw/lita-line" class="btn">View on GitHub</a>
+      <a href="https://github.com/aar0nTw/lita-line/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/aar0nTw/lita-line/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="lita-line" class="anchor" href="#lita-line" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>lita-line</h1>
+
+<p><a href="https://rubygems.org/gems/lita-line"><img src="https://img.shields.io/gem/v/lita-line.svg" alt="Gem"></a>
+<a href="https://rubygems.org/gems/lita-line"><img src="https://img.shields.io/gem/dt/lita-line.svg" alt="Gem"></a>
+<a href="https://gemnasium.com/github.com/aar0nTw/lita-line"><img src="https://img.shields.io/gemnasium/aar0nTw/lita-line.svg" alt="Gemnasium"></a>
+<a href="https://travis-ci.org/aar0nTw/lita-line"><img src="https://img.shields.io/travis/aar0nTw/lita-line.svg" alt="Build Status"></a>
+<a href="https://codeclimate.com/github/aar0nTw/lita-line"><img src="https://codeclimate.com/github/aar0nTw/lita-line/badges/gpa.svg" alt="Code Climate"></a>
+<a href="https://coveralls.io/github/aar0nTw/lita-line?branch=master"><img src="https://img.shields.io/coveralls/aar0nTw/lita-line.svg" alt="Coverage Status"></a></p>
+
+<p>LINE messaging webhook adapter for <a href="https://github.com/litaio/lita">Lita</a></p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Add lita-line to your Lita instance's Gemfile:</p>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">gem</span> <span class="pl-s"><span class="pl-pds">"</span>lita-line<span class="pl-pds">"</span></span></pre></div>
+
+<h2>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration</h2>
+
+<p>Use line adapter in <code>lita_config.rb</code></p>
+
+<div class="highlight highlight-source-ruby"><pre>config.robot.adapter <span class="pl-k">=</span> <span class="pl-c1">:line</span>
+config.adapters.line.channel_secret <span class="pl-k">=</span> <span class="pl-c1">ENV</span>[<span class="pl-s"><span class="pl-pds">"</span>LINE_CHANNEL_SECRET<span class="pl-pds">"</span></span>]
+config.adapters.line.channel_token <span class="pl-k">=</span> <span class="pl-c1">ENV</span>[<span class="pl-s"><span class="pl-pds">"</span>LINE_CHANNEL_TOKEN<span class="pl-pds">"</span></span>]</pre></div>
+
+<h3>
+<a id="required-attributes" class="anchor" href="#required-attributes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Required attributes</h3>
+
+<ul>
+<li>
+<code>channel_secret</code> <em>(String)</em>: Bot's Channel secret</li>
+<li>
+<code>channel_token</code> <em>(String)</em>: Bot's Channel token</li>
+</ul>
+
+<p>Create a line bot at <a href="https://business.line.me/">https://business.line.me/</a> and get it's secret and token in <a href="https://developers.line.me">https://developers.line.me</a> </p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<ul>
+<li>Deploy your lita app to heroku</li>
+<li>Setting the webhook callback address: <code>https://{your-lita-app-name}.herokuapp.com/callback</code> in <a href="https://developers.line.me">https://developers.line.me</a> </li>
+</ul>
+
+<h2>
+<a id="api-documentation" class="anchor" href="#api-documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API documentation</h2>
+
+<p>The API documentation, useful for plugin authors, can be found for the latest gem release on <a href="http://www.rubydoc.info/gems/lita-line">RubyDoc.info</a></p>
+
+<h2>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
+
+<ul>
+<li>
+<a href="https://github.com/aar0nTw/lita-line-bot">Lita-line-bot</a> | A simple LINE messaging bot use Lita</li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p><a href="http://opensource.org/licenses/MIT">MIT</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/aar0nTw/lita-line">Lita-line</a> is maintained by <a href="https://github.com/aar0nTw">aar0nTw</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
