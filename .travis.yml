@@ -14,3 +14,7 @@ deploy:
   gem: lita-line
   on:
     repo: aar0nTw/lita-line
+addons:
+  code_climate:
+    repo_token:
+      secure: xsmLBjL5tg2SkdbBAEmQ01zd3sASOAOHoiGBdBYYRZF4NNaMrVDNz1Tvi+4Pv0KpCCbg5TALh1ougaZrlg33fEw8DYbQoVLTmzTbZTErXxb5k6kvB/Wjs2rDJ8zWz0CAT3w64xyLm/XmledB7oZa+dzZznW8P6H83Ibw8Qa+nlyPePyB/UoDv6oAKO4b76WjeNz8wSVGawqf0yQas+BbD966B7NnNtogV3AhHiGec/X9HDqJuV2Z6bBCRX/1Hs/YDOaieyoOIn6XU7nLghymTezNEPyk6DttZpRpdBR0n6KgLuhPfcTd6TtyGDnPhnlk/rLg3/tRjKGwHj3PNjJ0ser4VFO0dpmumt60htMAKUQC3tInmuGlI4Uumpo8Ra4IsaU20/jtJKdI75PYRolqyETnR5c+Z++tZOw/l7VskLBdVKow+9ZGrePGFuumEdXG/JsFbVAilgYUubU3opCXvQ20QtlE7iSL/rwZEZEDrx/8yvjmSsqnGF5PdBrrNs4ZUxEizp5KqzyAnLLXQVEI+IDDH3uLKdSrKfiUbK2SNkULJq+eUivwgpnmDybhmjGgTsnZzWwB1NROB0JQgH5Yd+Wb9pIkmmrSu+BTNjQ+Ywo4SQkA+XYS2aP1HrZJGHMqROsZXY3EybqlTFTZ1K0apj/b4Bw7CaNH9FdKhFQBv0w=
