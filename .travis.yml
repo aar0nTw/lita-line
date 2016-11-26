@@ -1,9 +1,16 @@
 language: ruby
 cache: bundler
 rvm:
-  - 2.3.1
+- 2.3.1
 script: bundle exec rake
 before_install:
-  - gem update --system
+- gem update --system
 services:
-  - redis-server
+- redis-server
+deploy:
+  provider: rubygems
+  api_key:
+    secure: b3WMkStlgn09VthZit4RpetLVW/mIRL+mC+zVE37kf3jcvSmfRn0wbmdyZ1+71OB0nsYTwKUe4vZOScRfeu1/ME3QeFNLsjfY3JbwpBhihLSSTBmEfcwob4D/qS18GGcUqbjxHcxYydCA3yDxie6pTDsxwhxMzxrFUecyxCYxs94eiyytssm+TlAy/gsN55zudzU44HMpOOxiEuZUFDj1irkGli16/bJCNXMFvOD6R099FYKJ63rZJ2+H0b0YTHvr7p72wwktge5z51lgLNlFcWDjYuUfCRogO8LkmRd3kGyFrj+7RkHU3OWvqg/bESgDqzOsnH0baUQZrdsh9IxlaPdbhvdC9mB79V78E15NhLJ4aAYCiaZpJSOFQCN0pgEmX97YZ0zJVDnOarh1h1HiJM5Cs2vJ2QOD4qf1DlEIRlyxJyOUstZdQv+j7tYpkZOBlHbosbZ+7zTRBiIeCGqeAKTBrKwgJ2qCCwARe6G4WkvRNJSVZ83uvHQ25XJnQlO3io8PZhQhODtOnz0WfHtjY95eL66IYywnWxoUED5tjJlYuEmvRvw2ZeNcUnajaVL1dVVTdd/+nOy7JV4k7kdRRDvI+h0KapjA980BTByueUKV93yHN7c4q7u+ah67CaCGLSwSRU9BE9gdWstgdj97loiEvAJT7clsfijNVqOEYY=
+  gem: lita-line
+  on:
+    repo: aar0nTw/lita-line
