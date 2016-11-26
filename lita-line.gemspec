@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-line"
   spec.version       = "1.0.0"
-  spec.version       = "#{spec.version}-nightly-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
+  spec.version       = "#{spec.version}nightly#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
   spec.authors       = ["Aaron Huang"]
   spec.email         = ["aaroms9733@gmail.com"]
   spec.description   = "A line adapter for lita bot"
