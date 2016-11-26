@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-line"
-  spec.version       = "0.6.1"
+  spec.version       = "1.0.0"
   spec.version       = "#{spec.version}-nightly-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
   spec.authors       = ["Aaron Huang"]
   spec.email         = ["aaroms9733@gmail.com"]
