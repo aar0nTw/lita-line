@@ -31,7 +31,7 @@ config.adapters.line.channel_token = ENV["LINE_CHANNEL_TOKEN"]
 - `channel_secret` _(String)_: Bot's Channel secret
 - `channel_token` _(String)_: Bot's Channel token
 
-Create a line bot at https://business.line.me/ and get it's secret and token in https://developers.line.me 
+Create a line bot at https://business.line.me/ and get its secret and token in https://developers.line.me 
   
 ## Usage
 
